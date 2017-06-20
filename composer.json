@@ -1,5 +1,5 @@
 {
-  "name": "olicek/email-sender-cron",
+  "name": "olicek/email-sender-persistence",
   "description": "Application for sending e-mail via cron",
   "minimum-stability": "stable",
   "license": "MIT",
