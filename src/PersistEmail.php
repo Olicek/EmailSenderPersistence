@@ -2,7 +2,7 @@
 
 namespace Oli\EmailSender\Persistence;
 
-use Oli\EmailSender\Cron\Adapters\IAdapter;
+use Oli\EmailSender\Persistence\Adapters\IAdapter;
 use Oli\EmailSender\Persistence\Entities\IEmail;
 
 /**
@@ -23,11 +23,22 @@ class PersistEmail implements IPersistEmail
 		$this->adapter = $adapter;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function send(IEmail $email): IPersistEmail
 	{
-		$this->adapter->send($email);
+		$this->adapter->insertEmail($email);
 		return $this;
 	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function loadEmails(?int $number = null): array
+	{
+		return $this->adapter->loadEmails($number);
+	} // loadEmails()
 
 }
 

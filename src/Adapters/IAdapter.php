@@ -14,4 +14,10 @@ interface IAdapter
 
 	public function insertEmail(IEmail $email): void;
 
+	/**
+	 * @param int|null $number limit of emails
+	 * @return array|IEmail[]
+	 */
+	public function loadEmails(?int $number = null): array;
+
 }
