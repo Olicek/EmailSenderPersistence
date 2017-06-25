@@ -13,7 +13,7 @@ use Oli\EmailSender\Persistence\Entities\Person;
  * Copyright (c) 2017 Petr Olišar
  * @package Oli\EmailSender\Persistence\Adapters
  */
-class DibiAdapter implements IAdapter
+class DibiAdapter implements IAdapter, IDatabaseAdapter
 {
 
 	/**
@@ -163,4 +163,10 @@ class DibiAdapter implements IAdapter
 		return $emails;
 	}
 
+	public function install(): void
+	{
+		$sql = file_get_contents(__DIR__ . '/../../bin/initialize.sql');
+
+		$this->connection->nativeQuery($sql);
+	}
 }
