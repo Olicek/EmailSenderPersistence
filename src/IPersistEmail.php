@@ -18,6 +18,7 @@ interface IPersistEmail
      * Load emails which should be sended.
 	 * @param int|null $number limit of emails
 	 * @return array|IEmail
+	 * @internal
 	 */
 	public function loadEmails(?int $number = null): array;
 
