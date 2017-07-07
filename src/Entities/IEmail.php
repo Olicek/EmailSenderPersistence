@@ -14,6 +14,6 @@ interface IEmail extends IMessage
 
 	public function addAttachment(string $attachment): IEmail;
 
-	public function getReplyTo(): Person;
+	public function getReplyTo(): IPerson;
 
 }

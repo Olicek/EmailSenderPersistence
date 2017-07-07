@@ -8,12 +8,14 @@ interface IPersistEmail
 {
 
 	/**
+     * Save email to persistent layer.
 	 * @param IEmail $email
 	 * @return IPersistEmail
 	 */
 	public function send(IEmail $email): IPersistEmail;
 
 	/**
+     * Load emails which should be sended.
 	 * @param int|null $number limit of emails
 	 * @return array|IEmail
 	 */

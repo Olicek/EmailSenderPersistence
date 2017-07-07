@@ -7,7 +7,7 @@ namespace Oli\EmailSender\Persistence\Entities;
  * Copyright (c) 2017 Petr Olišar
  * @package Oli\EmailSender\Cron\Entities
  */
-class Person
+final class Person implements IPerson
 {
 
 	/**

@@ -7,7 +7,7 @@ namespace Oli\EmailSender\Persistence\Entities;
  * Copyright (c) 2017 Petr Olišar
  * @package Oli\EmailSender\Cron\Entities
  */
-class Email implements IEmail
+final class Email implements IEmail
 {
 
 	/**
@@ -16,12 +16,12 @@ class Email implements IEmail
 	private $subject;
 
 	/**
-	 * @var Person
+	 * @var IPerson
 	 */
 	private $from;
 
 	/**
-	 * @var array|Person[]
+	 * @var array|IPerson[]
 	 */
 	private $recipients = [];
 
@@ -36,11 +36,11 @@ class Email implements IEmail
 	private $message;
 
 	/**
-	 * @var Person
+	 * @var IPerson
 	 */
 	private $replyTo;
 
-	public function __construct(Person $from, Person $recipient, string $message, ?string $subject = null)
+	public function __construct(IPerson $from, IPerson $recipient, string $message, ?string $subject = null)
 	{
 		$this->from = $from;
 		$this->recipients[] = $recipient;
@@ -49,7 +49,7 @@ class Email implements IEmail
 		$this->replyTo = $from;
 	}
 
-	public function getReplyTo(): Person
+	public function getReplyTo(): IPerson
 	{
 		return $this->replyTo;
 	}
@@ -60,25 +60,25 @@ class Email implements IEmail
 		return $this;
 	}
 
-	public function changeReplyTo(Person $person): IEmail
+	public function changeReplyTo(IPerson $person): IEmail
 	{
 		$this->replyTo = $person;
 		return $this;
 	} // changeReplyTo()
 
-	public function addRecipient(Person $person): IMessage
+	public function addRecipient(IPerson $person): IMessage
 	{
 		$this->recipients[] = $person;
 		return $this;
 	}
 
-	public function getFrom(): Person
+	public function getFrom(): IPerson
 	{
 		return $this->from;
 	}
 
 	/**
-	 * @return array|Person[]
+	 * @return array|IPerson[]
 	 */
 	public function getRecipients(): array
 	{

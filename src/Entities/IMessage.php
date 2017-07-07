@@ -10,9 +10,9 @@ namespace Oli\EmailSender\Persistence\Entities;
 interface IMessage
 {
 
-	public function addRecipient(Person $person): IMessage;
+	public function addRecipient(IPerson $person): IMessage;
 
-	public function getFrom(): Person;
+	public function getFrom(): IPerson;
 
 	/**
 	 * @return array|Person[]

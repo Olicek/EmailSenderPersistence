@@ -10,7 +10,7 @@ use Oli\EmailSender\Persistence\Entities\IEmail;
  * Copyright (c) 2017 Petr Olišar
  * @package Oli\EmailSender\Cron\Persistence
  */
-class PersistEmail implements IPersistEmail
+final class PersistEmail implements IPersistEmail
 {
 
 	/**
