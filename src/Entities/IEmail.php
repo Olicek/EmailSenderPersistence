@@ -5,6 +5,19 @@ namespace Oli\EmailSender\Persistence\Entities;
 interface IEmail extends IMessage
 {
 
+	/**
+	 * @param int|null $id
+	 * @return IEmail
+	 * @internal
+	 */
+	public function setId(?int $id): IEmail;
+
+	/**
+	 * @return int|null
+	 * @internal
+	 */
+	public function getId(): ?int;
+
 	public function getSubject(): ?string;
 
 	/**

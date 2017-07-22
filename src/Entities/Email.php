@@ -11,6 +11,11 @@ final class Email implements IEmail
 {
 
 	/**
+	 * @var int|null
+	 */
+	private $id;
+
+	/**
 	 * @var string|null
 	 */
 	private $subject;
@@ -49,17 +54,43 @@ final class Email implements IEmail
 		$this->replyTo = $from;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
+	public function getId(): ?int
+	{
+		return $this->id;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function setId(?int $id): IEmail
+	{
+		$this->id = $id;
+		return $this;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
 	public function getReplyTo(): IPerson
 	{
 		return $this->replyTo;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function addAttachment(string $attachment): IEmail
 	{
 		$this->attachments[] = $attachment;
 		return $this;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function changeReplyTo(IPerson $person): IEmail
 	{
 		$this->replyTo = $person;
@@ -72,31 +103,40 @@ final class Email implements IEmail
 		return $this;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function getFrom(): IPerson
 	{
 		return $this->from;
 	}
 
 	/**
-	 * @return array|IPerson[]
+	 * @inheritdoc
 	 */
 	public function getRecipients(): array
 	{
 		return $this->recipients;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function getMessage(): string
 	{
 		return $this->message;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function getSubject(): ?string
 	{
 		return $this->subject;
 	}
 
 	/**
-	 * @return array|string[]
+	 * @inheritdoc
 	 */
 	public function getAttachments(): array
 	{
