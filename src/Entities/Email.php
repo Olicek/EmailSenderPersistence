@@ -95,7 +95,7 @@ final class Email implements IEmail
 	{
 		$this->replyTo = $person;
 		return $this;
-	} // changeReplyTo()
+	}
 
 	public function addRecipient(IPerson $person): IMessage
 	{
